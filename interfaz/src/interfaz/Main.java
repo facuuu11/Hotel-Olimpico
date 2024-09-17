@@ -19,8 +19,10 @@ public class Main {
 		if(encontrado!=null) {
 			JOptionPane.showMessageDialog(null, encontrado);
 			if (encontrado.getRol().equals("admin")) {
-				Admin nuevo = new Admin(encontrado.getMail(""),encontrado.getContrasena(""),encontrado.getRol(""));
-				nuevo.menuPrincipal();
+				
+				JOptionPane.showMessageDialog(null, "olis");
+//				Admin nuevo = new Admin(encontrado.getMail(""),encontrado.getContrasena(""),encontrado.getRol(""));
+//				nuevo.menuPrincipal();
 			} else if (encontrado.getRol().equals("encar")) {
 			
 		}else {
