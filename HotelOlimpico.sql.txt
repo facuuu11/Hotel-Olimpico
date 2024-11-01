@@ -1,0 +1,29 @@
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mail VARCHAR(255) NOT NULL UNIQUE,
+    contrasena VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE huespedes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    tipo ENUM('Comun', 'Olimpico') NOT NULL,
+    rol VARCHAR(50),
+    pais VARCHAR(100)
+);
+
+CREATE TABLE habitaciones (
+    numero INT PRIMARY KEY,
+    tipo ENUM('Cuádruple', 'Doble', 'Individual') NOT NULL,
+    disponible BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE registro_entrada_salida (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_huesped INT,
+    accion ENUM('Entrada', 'Salida') NOT NULL,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_huesped) REFERENCES huespedes(id)
+);

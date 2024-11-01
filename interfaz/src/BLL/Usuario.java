@@ -1,6 +1,8 @@
-package interfaz;
+package BLL;
 
 import java.util.LinkedList;
+
+import DLL.ControllerUsuario;
 
 public class Usuario {
 	private String mail;
@@ -28,8 +30,8 @@ public class Usuario {
 	public String toString() {
 		return "Usuario [mail=" + mail + ", contrasena=" + contrasena + "]";
 	}
-	public static Usuario Login(LinkedList<Usuario> usuarios, String mail, String contrasena ) {
-	
+	public static Usuario Login(String mail, String contrasena ) {
+		LinkedList<Usuario> usuarios = 	ControllerUsuario.MostraUsuario();
 		for (Usuario usuario : usuarios) {
 			if (usuario.getMail().equals(mail) && usuario.getContrasena().equals(contrasena)) {
 				return usuario;
